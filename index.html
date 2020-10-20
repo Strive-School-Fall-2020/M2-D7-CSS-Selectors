@@ -22,6 +22,112 @@
         background-color: #bdc7d0;
         margin-bottom: 2px;
       }
+
+      #first .col div:not(.elementIWant) {
+        width: 50px;
+        height: 50px;
+        background-color: #bdc7d0;
+        margin-bottom: 6px;
+      }
+
+      #second label.btn-secondary:not(:disabled):not(.disabled).active {
+        background-color: blue;
+      }
+
+      #third div.box > p {
+        font-weight: bold;
+      }
+
+      #fourth .col .divIWant + p {
+        text-decoration: underline;
+        color: red;
+      }
+
+      #fifth p ~ div ul li {
+        background-color: blue;
+      }
+
+      #sixth input[type="text"] {
+        margin-left: 200px;
+      }
+
+      #seventh a[href^="https"] {
+        color: green;
+      }
+
+      #seventh a[href$=".png"] {
+        color: black;
+      }
+
+      #eigth div:nth-last-child(3n + 5) {
+        color: red !important;
+      }
+
+      #eigth div:nth-of-type(2) {
+        color: blue !important;
+      }
+      #ninth .col {
+        z-index: 0;
+      }
+
+      #ninth .box {
+        position: relative;
+      }
+
+      #ninth .box::before {
+        content: ">>";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -20px;
+        background-color: green;
+        width: 60px;
+        height: 60px;
+        z-index: -1;
+      }
+      #ninth .box::after {
+        content: "<<";
+        position: absolute;
+        top: -10px;
+        right: -20px;
+        bottom: 0;
+        background-color: red;
+        width: 60px;
+        height: 60px;
+        z-index: 2;
+      }
+
+      div.row.mb-5 > .col-8 > .container > .img-wrapper {
+        position: relative;
+      }
+      div.row.mb-5 > .col-8 > .container > .img-wrapper::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        bottom: 0;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+
+      div.row.mb-5 > .col-8 > .container > .img-wrapper > p {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        font-size: 1.6rem;
+        font-weight: 600;
+        z-index: 1;
+      }
+
+      div.row.mb-5 > .col-8 > .container > p.clear-left {
+        clear: left;
+      }
     </style>
     <title>CSS Selectors!</title>
   </head>
@@ -83,7 +189,6 @@
           <h5>#2 Target the active state and change its color</h5>
         </div>
       </div>
-
       <div class="row mb-5">
         <div class="col-8">
           <div class="container">
@@ -347,6 +452,7 @@
               class="row row-cols-6 py-4 border rounded bg-light px-3"
               style="height: 200px"
             >
+              <h3>title</h3>
               <div class="col bg-dark text-white mb-1 border text-center">
                 1
               </div>
@@ -383,6 +489,7 @@
               <div class="col bg-dark text-white mb-1 border text-center">
                 12
               </div>
+              <span>hi</span>
             </div>
           </div>
         </div>
@@ -396,7 +503,7 @@
           <div class="container">
             <div id="ninth" class="row row-cols-4 py-4 border rounded bg-light">
               <div class="col">
-                <div class="box"></div>
+                <div class="box">CONTENT</div>
               </div>
             </div>
           </div>
@@ -408,7 +515,42 @@
       </div>
     </div>
 
-    <div class="" style="height: 30vh; background-color: #f8f8f8">
+    <div class="row mb-5">
+      <div class="col-8">
+        <div class="container">
+          <h3>Overlay over image</h3>
+          <div class="img-wrapper">
+            <img src="1-2.jpg" class="img-fluid w-100" />
+            <p class="text-white">Movie-title</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-8">
+        <div class="container">
+          <h3>Floats</h3>
+          <img src="1-2.jpg" class="float-left mr-3 mb-2" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            quae magnam recusandae possimus explicabo, eligendi ut repellat quo
+            culpa voluptates commodi
+          </p>
+          <p class="clear-left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            quae magnam recusandae possimus explicabo, eligendi ut repellat quo
+            culpa voluptates commodi nulla voluptas eaque error perspiciatis,
+            nobis nihil odio nemo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="d-flex justify-content-center align-items-center"
+      style="height: 30vh; background-color: #f8f8f8"
+    >
       <div class="box mr-2"></div>
       <div class="box mr-2"></div>
       <div class="box"></div>
